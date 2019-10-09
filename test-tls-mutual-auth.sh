@@ -23,25 +23,29 @@ PORT=5555
 
 #$SERVER_APP --help
 
-echo "CA cert: $CA_CERT"
+#echo "CA cert: $CA_CERT"
+#echo "Server key: $SERVER_KEY"
+#echo "Server cert: $SERVER_CERT"
+#echo "Client key: $CLIENT_KEY"
+#echo "Client cert: $CLIENT_CERT"
 
-echo "Server key: $SERVER_KEY"
-echo "Server cert: $SERVER_CERT"
+#$CLIENT_APP --help
 
-echo "Client key: $CLIENT_KEY"
-echo "Client cert: $CLIENT_CERT"
+echo "server command: $SERVER_APP -cert $SERVER_CERT -key $SERVER_KEY -ca $CA_CERT -port $PORT -message 'Test message from server'"
 
-$SERVER_APP \
-  -cert $SERVER_CERT \
-  -key $SERVER_KEY \
-  -ca $CA_CERT \
-  -port $PORT \
-  -message 'Test message from server' &
+echo "client command: $CLIENT_APP -cert $CLIENT_CERT -key $CLIENT_KEY -ca $CA_CERT -port $PORT -ipv4 127.0.0.1 -message 'Test message from client'"
 
-$CLIENT_APP \
-  -cert $CLIENT_CERT \
-  -key $CLIENT_KEY \
-  -ca $CA_CERT \
-  -port $PORT \
-  -ipv4 127.0.0.1 \
-  -message 'Test message from client'
+#$SERVER_APP \
+#  -cert $SERVER_CERT \
+#  -key $SERVER_KEY \
+#  -ca $CA_CERT \
+#  -port $PORT \
+#  -message 'Test message from server' &
+#
+#$CLIENT_APP \
+#  -cert $CLIENT_CERT \
+#  -key $CLIENT_KEY \
+#  -ca $CA_CERT \
+#  -port $PORT \
+#  -ipv4 127.0.0.1 \
+#  -message 'Test message from client'
